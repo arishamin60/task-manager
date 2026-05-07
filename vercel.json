@@ -8,12 +8,11 @@
   },
   "regions": ["iad1"],
   "functions": {
-    "server/index.ts": {
-      "runtime": "now-node@1.0.0",
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  },
+  "api/index.ts": {
+    "memory": 1024,
+    "maxDuration": 60
+  }
+},
   "rewrites": [
     {
       "source": "/(.*)",
