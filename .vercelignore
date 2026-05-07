@@ -1,0 +1,52 @@
+# Dependencies (will be installed fresh)
+node_modules/
+pnpm-lock.yaml
+
+# Development files
+.manus-logs/
+.webdev/
+.git/
+.gitkeep
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment files (use Vercel dashboard instead)
+.env
+.env.local
+.env.*.local
+
+# Build output (will be generated)
+dist/
+build/
+.next/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Documentation (optional, can be included)
+# DEPLOYMENT_GUIDE.md
+# README.md
+
+# Test files (if any)
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Coverage reports
+coverage/
+.nyc_output/

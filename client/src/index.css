@@ -1,0 +1,288 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Glassmorphic Design Tokens */
+  --primary: #4f46e5; /* Soft slate-blue */
+  --primary-foreground: #faf9f7; /* Cream */
+  --sidebar-primary: #4f46e5;
+  --sidebar-primary-foreground: #faf9f7;
+  --chart-1: #a78bfa;
+  --chart-2: #818cf8;
+  --chart-3: #6366f1;
+  --chart-4: #4f46e5;
+  --chart-5: #4338ca;
+  --radius: 1rem; /* 16px for glassmorphic rounded corners */
+  --background: #faf9f7; /* Cream background */
+  --foreground: #1f2937; /* Dark slate for text */
+  --card: rgba(255, 255, 255, 0.7); /* Frosted glass effect */
+  --card-foreground: #1f2937;
+  --popover: rgba(255, 255, 255, 0.8);
+  --popover-foreground: #1f2937;
+  --secondary: #e9d5ff; /* Muted lavender */
+  --secondary-foreground: #5b21b6;
+  --muted: #f3f4f6; /* Light gray */
+  --muted-foreground: #6b7280;
+  --accent: #f59e0b; /* Warm amber for completion */
+  --accent-foreground: #fff;
+  --destructive: #ef4444; /* Red for delete */
+  --destructive-foreground: #fff;
+  --border: rgba(79, 70, 229, 0.1); /* Subtle indigo border */
+  --input: rgba(255, 255, 255, 0.6);
+  --ring: #4f46e5;
+  --sidebar: #faf9f7;
+  --sidebar-foreground: #1f2937;
+  --sidebar-accent: #e9d5ff;
+  --sidebar-accent-foreground: #5b21b6;
+  --sidebar-border: rgba(79, 70, 229, 0.1);
+  --sidebar-ring: #4f46e5;
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663229479762/MXiwCgnL2gGGih2zMxwbr7/hero-gradient-glass-4SCBQb64c3V7h7Ex3kpLjL.webp');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /* Glassmorphic effects */
+  .glass {
+    @apply backdrop-blur-md border;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md border;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Glassmorphic task card */
+  .task-card {
+    @apply backdrop-blur-md border rounded-2xl p-4 mb-3 transition-all duration-300 ease-out;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(79, 70, 229, 0.1);
+  }
+  
+  .task-card:hover {
+    @apply bg-white/80;
+    box-shadow: 0 12px 40px rgba(79, 70, 229, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .task-card.completed {
+    @apply opacity-60;
+  }
+  
+  /* Input field with glassmorphic effect */
+  .glass-input {
+    @apply backdrop-blur-md border rounded-2xl px-5 py-3 text-base font-medium placeholder-gray-400;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .glass-input:focus {
+    @apply outline-none bg-white/90;
+    box-shadow: 0 12px 40px rgba(79, 70, 229, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Filter button pill */
+  .filter-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-200;
+    @apply bg-white/50 text-gray-600 border border-white/30;
+  }
+  
+  .filter-pill:hover {
+    @apply bg-white/70 text-gray-700;
+  }
+  
+  .filter-pill.active {
+    @apply bg-indigo-500 text-white border-indigo-500;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
+  }
+  
+  /* Smooth animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes scaleCheckmark {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in-up {
+    animation: slideInUp 0.3s ease-out;
+  }
+  
+  .animate-slide-out-right {
+    animation: slideOutRight 0.25s ease-in forwards;
+  }
+  
+  .animate-scale-checkmark {
+    animation: scaleCheckmark 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
